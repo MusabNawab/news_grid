@@ -19,7 +19,6 @@ void main() async {
   getIt<ConnectivityCubit>().listen();
   //initialize storage service
   await StorageService.init();
-  StorageService.clear();
   //initialize environment variables
   await dotenv.load(fileName: "app_secrets.env");
   //initialize user
