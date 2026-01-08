@@ -1,0 +1,113 @@
+name: news_grid
+description: "A news app that fetches news from the internet"
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  #network
+  dio: ^5.9.0
+  pretty_dio_logger: ^1.4.0
+  internet_connection_checker_plus: ^2.9.1+2
+  cached_network_image: ^3.4.1
+  share_plus: ^12.0.1
+
+  #local storage
+  shared_preferences: ^2.5.4
+
+  #state management
+  flutter_bloc: ^9.1.1
+
+  #loaders
+  skeletonizer: ^2.1.2
+
+  #icons
+  font_awesome_flutter: ^10.12.0
+
+  #dependency injection
+  get_it: ^9.2.0
+
+  #Text Formatters
+  intl: ^0.20.2
+
+  #error handling
+  fpdart: ^1.2.0
+
+  #web packages
+  webview_flutter: ^4.13.0
+  url_launcher: ^6.3.2
+
+
+  #others
+  flutter_dotenv: ^6.0.0
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+    - app_secrets.env
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Playfair
+      fonts:
+        - asset: assets/fonts/playfair_display/PlayfairDisplay-Black.ttf
+          weight: 900
+        - asset: assets/fonts/playfair_display/PlayfairDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/playfair_display/PlayfairDisplay-Medium.ttf
+          weight: 400
+        - asset: assets/fonts/playfair_display/PlayfairDisplay-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/playfair_display/PlayfairDisplay-Italic.ttf
+          style: italic
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter_18pt-Black.ttf
+          weight: 900
+        - asset: assets/fonts/inter/Inter_18pt-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/inter/Inter_18pt-Medium.ttf
+          weight: 400
+        - asset: assets/fonts/inter/Inter_18pt-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/inter/Inter_18pt-Italic.ttf
+          style: italic
+
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
