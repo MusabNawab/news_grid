@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:isolate';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -106,7 +107,8 @@ class ApiService implements ApiCaller {
       }
 
       if (fromJson != null) {
-        return Right(fromJson(decoded));
+        final result = await Isolate.run(() => fromJson(decoded));
+        return Right(result);
       }
 
       return Right(decoded as T);

@@ -33,8 +33,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
     final user = await StorageService.getUser();
     if (user != null) {
       final isSaved =
-          user.savedArticles?.any((a) => a.title == widget.article.title) ??
-          false;
+          user.savedArticles?.any((a) => a.url == widget.article.url) ?? false;
       if (mounted) {
         setState(() {
           _user = user;
@@ -45,21 +44,14 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
   }
 
   Future<void> _toggleBookmark() async {
-    if (_user == null) return;
-
-    final currentSaved = _user!.savedArticles ?? [];
-    List<Article> updatedSaved;
-
     if (_isSaved) {
-      updatedSaved = currentSaved
-          .where((a) => a.title != widget.article.title)
-          .toList();
+      await StorageService.removeArticle(widget.article.url);
     } else {
-      updatedSaved = [...currentSaved, widget.article];
+      await StorageService.saveArticle(widget.article);
     }
 
-    final updatedUser = _user!.copyWith(savedArticles: updatedSaved);
-    await StorageService.saveUser(updatedUser);
+    // Refresh user state to get updated list (optional but good for consistency)
+    final updatedUser = await StorageService.getUser();
 
     if (mounted) {
       setState(() {
